@@ -176,6 +176,10 @@ Messages, reviews and notes come from people who may try to steer the model.
 The model's output is advice. The interface must make that obvious and keep the
 person in control.
 
+- **Opt in, per user.** The smart view is a switch on the screen, off by
+  default. Off shows the original screen exactly as it was; on adds the labels,
+  tabs and suggestions. Remember the user's choice. People adopt it when it is
+  theirs to turn on, not when the screen they know changes under them.
 - **Reorder and label, never hide.** Triage changes order, adds badges and
   filters ("Important", "Brand deals", "Spam"); every item stays reachable.
   Nothing is deleted or auto-archived by the model.
