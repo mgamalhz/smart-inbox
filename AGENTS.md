@@ -1,8 +1,8 @@
 # Working on this repository
 
-One agent skill, `skills/laravel-ai-brain/`, in the Agent Skills format. The
-repo is also a Claude Code marketplace: the plugin `laravel-ai-brain` is the
-repo root and exposes the folder in `skills/`.
+One agent skill, `skills/smart-inbox/`, in the Agent Skills format. The repo is
+also a Claude Code marketplace: the plugin `smart-inbox` is the repo root and
+exposes the folder in `skills/`.
 
 ## Rules
 
@@ -12,7 +12,7 @@ repo root and exposes the folder in `skills/`.
   targets. When unsure, check the docs before writing it.
 - Keep `SKILL.md` focused on rules and workflow; code-heavy patterns live in
   `references/`.
-- Security, performance, structure and verification belong to
-  [`laravel-skills`](https://github.com/mgamalhz/laravel-skills). Reference those
-  skills by name instead of repeating their content here.
+- The skill must work on its own. [`laravel-skills`](https://github.com/mgamalhz/laravel-skills)
+  is optional: reference its skills by name where they help, but keep the
+  essential checks in this skill.
 - After any change: `claude plugin validate .` must pass.

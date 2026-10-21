@@ -1,71 +1,60 @@
-# Laravel AI brain
+# Smart Inbox
 
-An agent skill that adds a "brain" to an existing Laravel application: the
-system notices what deserves attention, explains why, and suggests the next
-step, instead of only showing numbers. It works with Claude Code, Cursor, Codex
-and any agent that reads the [Agent Skills](https://agentskills.io) format.
+Turn any inbox in your Laravel app into a smart one. Contact messages, reviews,
+support requests, disputes: each new item gets a **category**, a **priority**, a
+**one-line reason** and a **draft reply**, so the important ones never get lost
+between spam and small questions.
 
-> `0.x`: first version, being tested on real projects.
+It is an [agent skill](https://agentskills.io): your coding agent (Claude Code,
+Cursor, Codex...) reads it and builds the feature inside your own app, with your
+data, your design and your stack.
 
-## What it builds
+> `0.x`: tested on real projects, still improving.
 
-| Shape | Example |
-|---|---|
-| **Triage** | Every new message, ticket, dispute or review gets a category, a priority, a one-line reason and a suggested reply. |
-| **Insights** | A morning briefing: regular customers who stopped ordering, a coupon that brings customers who never return, a branch turning people away. |
-| **Ask** | The owner asks "why was last month weaker?" and gets an answer built from the app's own numbers. |
-
-## How it is different
-
-Most "AI on your data" tools let the model write SQL or chat freely over the
-database. This skill does the opposite:
-
-- **The code computes every number.** The model reads facts, judges, ranks and writes.
-- **The model never touches the database** and has no tools that write, send or spend.
-- **Tenant isolation, prompt injection, cost and failure** are handled by design,
-  not left to the prompt.
-- **It says "not enough data yet"** instead of guessing.
-- **It proposes before it builds:** the agent reads the app, lists the decisions
-  the business makes, and suggests where AI helps and where a plain rule is enough.
-
-Built on the official [`laravel/ai`](https://laravel.com/docs/ai-sdk) SDK, so it
-works with any provider the SDK supports.
+More: [mgamalhz.com/smart-inbox](https://mgamalhz.com/smart-inbox)
 
 ## Install
 
-**Claude Code**
-
 ```bash
-/plugin marketplace add mgamalhz/laravel-ai-brain
-/plugin install laravel-ai-brain@laravel-ai-brain
+npx skills add mgamalhz/smart-inbox
 ```
 
-**Any agent** (via [skills.sh](https://skills.sh))
+or in Claude Code:
 
 ```bash
-npx skills add mgamalhz/laravel-ai-brain
+/plugin marketplace add mgamalhz/smart-inbox
+/plugin install smart-inbox@smart-inbox
 ```
 
-## Requires
+## Use
 
-[`laravel-skills`](https://github.com/mgamalhz/laravel-skills) for the security,
-performance, architecture and done-checklist reviews this skill runs before
-calling a feature done:
+In a Laravel project, ask your agent:
 
-```bash
-/plugin marketplace add mgamalhz/laravel-skills
-/plugin install laravel-engineering@mgamalhz
-```
+> Add a smart inbox to this app.
 
-## Use it
+It finds the inboxes in your app, agrees the labels with you, builds it, and
+tests it on realistic fake data before anything real is sent.
 
-Ask your agent, in a Laravel project:
+## What it builds
 
-> Add a brain to this app.
+- Labels that fit your business (brand deal, booking, complaint, spam...).
+- A priority and a one-line reason for every item.
+- A draft reply or next step, never sent automatically.
+- A switch, off by default: with it off, your inbox looks exactly as before.
+- Tabs with counts, "Wrong label?" feedback, tests, a fixture set and an eval command.
 
-or be specific:
+## What it never does
 
-> Triage incoming messages for profile owners.
+- Reply, delete or change anything on its own.
+- Decide disputes, refunds or anything involving money.
+- Let the AI write SQL or touch your database.
+- Send names, emails or phone numbers to the AI provider.
+
+Built on the official [`laravel/ai`](https://laravel.com/docs/ai-sdk) SDK, so it
+works with Anthropic, OpenAI, Gemini and the other providers it supports.
+
+Works even better with [`laravel-skills`](https://github.com/mgamalhz/laravel-skills)
+for security, performance and done-checklist reviews.
 
 ## License
 

@@ -1,15 +1,15 @@
 {
-  "name": "laravel-ai-brain",
-  "description": "Add AI to an existing Laravel app safely.",
+  "name": "smart-inbox",
+  "description": "A smart inbox for Laravel apps.",
   "owner": {
     "name": "Mohamed Gamal",
     "url": "https://mgamalhz.com"
   },
   "plugins": [
     {
-      "name": "laravel-ai-brain",
+      "name": "smart-inbox",
       "source": "./",
-      "description": "Add AI to an existing Laravel app safely: triage, insights and questions over the app's own data, with the code computing every number."
+      "description": "Turn any inbox in a Laravel app into a smart one: each item gets a category, a priority, a reason and a draft reply, behind a switch the user turns on."
     }
   ]
 }

@@ -1,11 +1,22 @@
-# Triage: one item at a time
+# Building the smart inbox
 
-Use for anything that arrives and waits for a person: messages, support tickets,
-notifications, disputes, reviews, applications. Each item gets a category, a
-priority, a one-line reason and, when useful, a suggested next step or reply.
+The example triages contact messages for the owner of a profile. Rename to fit
+the app (reviews, disputes, tickets); keep the shape.
 
-The example triages inbound messages for the owner of a profile. Rename to fit
-the app; keep the shape.
+## 0. Config
+
+```php
+// config/smart_inbox.php
+return [
+    'enabled' => (bool) env('AI_SMART_INBOX', false),
+    'provider' => env('AI_SMART_INBOX_PROVIDER', 'anthropic'),
+    'model' => env('AI_SMART_INBOX_MODEL'),
+    'daily_limit_per_owner' => (int) env('AI_SMART_INBOX_DAILY_LIMIT', 200),
+];
+```
+
+Add the keys to `.env.example`, and pin the feature off for tests in
+`phpunit.xml`: `<env name="AI_SMART_INBOX" value="false"/>`.
 
 ## Flow
 
@@ -164,7 +175,7 @@ messages:
 TriageMessage::dispatch($message)->afterCommit();
 ```
 
-Guard it with the feature switch: `if (config('ai_brain.triage.enabled')) { ... }`.
+Guard it with the feature switch: `if (config('smart_inbox.enabled')) { ... }`.
 
 ## 5. The service
 
@@ -173,8 +184,23 @@ class MessageTriageService
 {
     public function run(Message $message): void
     {
+        if (! config('smart_inbox.enabled')) {
+            return;
+        }
+
         if ($message->triage?->prompt_version === MessageTriage::VERSION) {
             return; // already done with these instructions: retries and re-dispatches are safe
+        }
+
+        $allowed = RateLimiter::attempt(
+            "smart-inbox:{$message->profile_id}",
+            config('smart_inbox.daily_limit_per_owner'),
+            fn () => true,
+            decaySeconds: 86400,
+        );
+
+        if (! $allowed) {
+            return; // over today's budget: the item stays unlabelled
         }
 
         $response = MessageTriage::make(
@@ -182,8 +208,8 @@ class MessageTriageService
             locale: $message->profile->locale,
         )->prompt(
             '<message>'.Str::limit($message->body, 4000).'</message>',
-            provider: config('ai_brain.provider'),
-            model: config('ai_brain.models.triage'),
+            provider: config('smart_inbox.provider'),
+            model: config('smart_inbox.model'),
         );
 
         $message->triage()->updateOrCreate([], [
@@ -191,7 +217,7 @@ class MessageTriageService
             'priority' => TriagePriority::from($response['priority']),
             'reason' => $response['reason'],
             'suggested_reply' => $response['suggested_reply'],
-            'model' => config('ai_brain.models.triage'),
+            'model' => config('smart_inbox.model'),
             'prompt_version' => MessageTriage::VERSION,
             'input_tokens' => $response->usage->inputTokens,
             'output_tokens' => $response->usage->outputTokens,
@@ -225,7 +251,19 @@ category fails the job instead of reaching the screen.
   Reply-by-email actions. Never send it automatically.
 - "Wrong label?" sets `feedback` on the triage row.
 
-## 7. Tests
+## 7. The switch
+
+The smart view is opt-in per user and off by default:
+
+- A switch at the top of the inbox, in the AI accent colour, with one line on
+  what it does. Remember the choice (a user setting, or local storage when a
+  per-browser choice is enough).
+- Off: render the original list exactly as before. On: tabs, labels, reasons,
+  drafts and "Wrong label?".
+- If the page is opened with a filter while the switch is off, return to the
+  unfiltered list, so nobody sees a narrowed list with no tabs to explain it.
+
+## 8. Tests
 
 ```php
 public function test_a_new_message_is_triaged_after_commit(): void
@@ -268,9 +306,9 @@ public function test_one_owner_never_sees_another_owners_triage(): void
 }
 ```
 
-## 8. Fixtures and eval
+## 9. Fixtures, demo data and eval
 
-`tests/Fixtures/brain/messages.json`:
+`tests/Fixtures/smart-inbox/messages.json`:
 
 ```json
 [
@@ -281,6 +319,9 @@ public function test_one_owner_never_sees_another_owners_triage(): void
 ]
 ```
 
-The eval command loops the fixtures through the real agent and prints, per
-category, how many matched, then every miss with the reason the model gave.
-It must refuse to run when `app()->environment('testing')`.
+- **Demo command** (local only): loads the fixtures into a test account, with
+  `--fresh` to replace them and `--sync` to label them immediately. It refuses
+  to run in production.
+- **Eval command:** loops the fixtures through the real agent and prints, per
+  category, how many matched, then every miss with the reason the model gave.
+  It refuses to run when `app()->environment('testing')`.

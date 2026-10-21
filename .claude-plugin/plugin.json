@@ -1,13 +1,13 @@
 {
-  "name": "laravel-ai-brain",
+  "name": "smart-inbox",
   "version": "0.1.0",
-  "description": "Add AI to an existing Laravel app safely: triage, insights and questions over the app's own data, with the code computing every number.",
+  "description": "Turn any inbox in a Laravel app into a smart one: each item gets a category, a priority, a reason and a draft reply, behind a switch the user turns on.",
   "author": {
     "name": "Mohamed Gamal",
     "url": "https://mgamalhz.com"
   },
-  "homepage": "https://github.com/mgamalhz/laravel-ai-brain",
-  "repository": "https://github.com/mgamalhz/laravel-ai-brain",
+  "homepage": "https://mgamalhz.com/smart-inbox",
+  "repository": "https://github.com/mgamalhz/smart-inbox",
   "license": "MIT",
-  "keywords": ["laravel", "ai", "laravel-ai", "triage", "insights", "dashboard"]
+  "keywords": ["laravel", "ai", "laravel-ai", "inbox", "triage", "arabic"]
 }
