@@ -1,0 +1,15 @@
+{
+  "name": "laravel-ai-brain",
+  "description": "Add AI to an existing Laravel app safely.",
+  "owner": {
+    "name": "Mohamed Gamal",
+    "url": "https://mgamalhz.com"
+  },
+  "plugins": [
+    {
+      "name": "laravel-ai-brain",
+      "source": "./",
+      "description": "Add AI to an existing Laravel app safely: triage, insights and questions over the app's own data, with the code computing every number."
+    }
+  ]
+}

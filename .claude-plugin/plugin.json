@@ -1,0 +1,13 @@
+{
+  "name": "laravel-ai-brain",
+  "version": "0.1.0",
+  "description": "Add AI to an existing Laravel app safely: triage, insights and questions over the app's own data, with the code computing every number.",
+  "author": {
+    "name": "Mohamed Gamal",
+    "url": "https://mgamalhz.com"
+  },
+  "homepage": "https://github.com/mgamalhz/laravel-ai-brain",
+  "repository": "https://github.com/mgamalhz/laravel-ai-brain",
+  "license": "MIT",
+  "keywords": ["laravel", "ai", "laravel-ai", "triage", "insights", "dashboard"]
+}
