@@ -48,6 +48,17 @@
     box-shadow: 0 16px 32px -12px rgba(15, 23, 42, 0.45); }
   .hero-inbox.show-draft .draft { opacity: 1; transform: none; }
 
+  /* Reveal on scroll: cards and bands lift in once, then stay. JS adds .is-visible;
+     reduced motion shows everything immediately without the transition. */
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.is-visible { opacity: 1; transform: none; }
+
+  /* FAQ accordion: native details/summary, custom plus icon that rotates to a cross. */
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq[open] .faq-icon { transform: rotate(45deg); }
+  .faq[open] summary { color: #7c3aed; }
+  .dark .faq[open] summary { color: #c4b5fd; }
+
   .no-scrollbar {
     scrollbar-width: none;
   }

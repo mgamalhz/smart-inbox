@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Inbox for Laravel | Mohamed Gamal</title>
+  <title>Smart Inbox for Laravel — Never Lose a Customer in Your Inbox</title>
   <meta name="description"
-    content="An open-source skill for your coding agent: every message, review or dispute in your Laravel app gets a category, a priority, a reason and a draft reply. It suggests; you decide.">
+    content="Smart Inbox turns the contact messages, reviews and disputes in your Laravel app into a sorted inbox: a category, a priority, a one-line reason and a draft reply. Done for you, or free and open source.">
   <meta name="author" content="Mohamed Gamal">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <!-- Theme before first paint: the visitor's saved choice, otherwise the device setting. -->
@@ -49,29 +49,35 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=IBM+Plex+Sans+Arabic:wght@400;500&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
-  <link rel="stylesheet" href="/style.css?v=46d9d0f18b">
+  <link rel="stylesheet" href="/style.css?v=7b7fce989d">
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white antialiased font-sans">
 
   <!-- Navigation -->
-  <nav class="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.5rem)] max-w-3xl" aria-label="Primary navigation">
+  <nav class="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.5rem)] max-w-4xl" aria-label="Primary navigation">
     <div class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-2xl px-4 py-3 shadow-xl shadow-slate-300/40 dark:shadow-black/30">
       <div class="flex items-center justify-between gap-4">
-        <a href="https://mgamalhz.com" class="flex items-center gap-2.5 rounded-lg pr-2 group" data-ga-event="home_click" data-ga-location="smart_inbox_nav">
-          <span class="w-9 h-9 grid place-items-center rounded-lg bg-emerald-100 dark:bg-emerald-400/15 text-emerald-700 dark:text-emerald-300 font-mono text-[13px] font-bold group-hover:bg-emerald-200 dark:group-hover:bg-emerald-400/25 transition-colors" aria-hidden="true">MG</span>
-          <span class="hidden sm:inline text-sm font-medium text-slate-600 dark:text-gray-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">by Mohamed Gamal</span>
-          <span class="sm:hidden sr-only">Mohamed Gamal, home</span>
+        <a href="#top" class="flex items-center gap-2.5 rounded-lg pr-2 group" aria-label="Smart Inbox, back to top">
+          <span class="w-9 h-9 grid place-items-center rounded-lg bg-gradient-to-br from-violet-600 to-fuchsia-500 text-white" aria-hidden="true">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l1.9 5.6 5.6 1.9-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.9L12 2.5zm6.5 11.5l.9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9.9-2.6z" /></svg>
+          </span>
+          <span class="text-sm font-bold tracking-tight group-hover:text-violet-600 dark:group-hover:text-violet-300 transition-colors">Smart Inbox</span>
         </a>
+        <div class="hidden md:flex items-center gap-1 text-sm text-slate-600 dark:text-gray-300">
+          <a href="#how-it-works" class="px-3 py-2 rounded-lg hover:bg-slate-200 dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-colors">How it works</a>
+          <a href="#developers" class="px-3 py-2 rounded-lg hover:bg-slate-200 dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-colors">For developers</a>
+          <a href="#faq" class="px-3 py-2 rounded-lg hover:bg-slate-200 dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-colors">FAQ</a>
+        </div>
         <div class="flex items-center gap-1">
-                    <button id="theme-toggle" type="button" class="min-w-9 h-9 grid place-items-center rounded-lg text-slate-600 dark:text-gray-300 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors" aria-label="Switch between light and dark mode">
+          <button id="theme-toggle" type="button" class="min-w-9 h-9 grid place-items-center rounded-lg text-slate-600 dark:text-gray-300 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors" aria-label="Switch between light and dark mode">
             <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path stroke-linecap="round" d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4l1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4l1.4-1.4" /></svg>
             <svg class="w-4 h-4 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z" /></svg>
           </button>
           <a href="https://github.com/mgamalhz/smart-inbox" class="inline-flex items-center gap-2 text-sm text-slate-600 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/10 px-3 py-2 rounded-lg transition-colors" aria-label="Smart Inbox on GitHub" data-ga-event="github_click" data-ga-location="nav"><svg class="w-[18px] h-[18px]" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z" /></svg><span class="hidden sm:inline">GitHub</span></a>
-          <a href="https://wa.me/201272711137?text=Hi%20Mohamed%2C%20I%20saw%20Smart%20Inbox%20and%20I%27d%20like%20to%20talk%20about%20it." target="_blank" rel="noopener noreferrer"
-            data-ga-event="whatsapp_click" data-ga-location="smart_inbox_nav"
-            class="ml-1 text-sm text-slate-950 bg-emerald-300 hover:bg-emerald-200 px-4 py-2 rounded-lg transition-colors">Talk to me</a>
+          <a href="https://calendly.com/mgamalhz/free-45-min-backend-consultation?utm_source=smart-inbox&amp;utm_medium=website&amp;utm_content=nav" target="_blank" rel="noopener noreferrer" data-calendly
+            data-ga-event="booking_click" data-ga-location="smart_inbox_nav"
+            class="ml-1 text-sm font-semibold text-slate-950 bg-emerald-300 hover:bg-emerald-200 px-4 py-2 rounded-lg transition-colors">Book a free call</a>
         </div>
       </div>
     </div>
@@ -86,25 +92,36 @@
 
       <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-14 items-center">
         <div class="text-center lg:text-left">
-        <p class="inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-50 dark:bg-violet-500/10 px-3 py-1 text-xs font-medium text-violet-700 dark:text-violet-200">
-          <span class="w-1.5 h-1.5 rounded-full bg-violet-500 dark:bg-violet-300"></span>
-          Free agent skill for Laravel
-        </p>
-        <h1 class="mt-6 text-4xl sm:text-6xl lg:text-[3.6rem] font-extrabold tracking-[-0.03em] leading-[1.08]">
-          Your inbox just got<br> <span class="text-violet-600 dark:text-violet-300 whitespace-nowrap">a brain.</span>
-        </h1>
-        <p class="mt-5 text-lg sm:text-xl text-slate-600 dark:text-gray-300 leading-relaxed">
-          Every message, review or dispute gets a label, a priority and a draft reply.
-          <span class="block mt-1 text-slate-900 dark:text-white font-semibold">It suggests. You decide.</span>
-        </p>
+          <p class="inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-50 dark:bg-violet-500/10 px-3 py-1 text-xs font-medium text-violet-700 dark:text-violet-200">
+            <span class="w-1.5 h-1.5 rounded-full bg-violet-500 dark:bg-violet-300"></span>
+            AI inbox triage for Laravel apps
+          </p>
+          <h1 class="mt-6 text-4xl sm:text-6xl lg:text-[3.4rem] font-extrabold tracking-[-0.03em] leading-[1.06]">
+            Stop losing customers<br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-500 dark:from-violet-300 dark:to-fuchsia-300">in your own inbox.</span>
+          </h1>
+          <p class="mt-5 text-lg sm:text-xl text-slate-600 dark:text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
+            Smart Inbox reads every message, review and dispute that lands in your app — then hands it to you sorted: a category, a priority, a one-line reason, and a ready-to-edit reply.
+            <span class="block mt-1 text-slate-900 dark:text-white font-semibold">It suggests. You decide.</span>
+          </p>
 
-        <div class="mt-8 mx-auto lg:mx-0 max-w-md flex items-center gap-2 rounded-xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/10 pl-4 pr-2 py-2 text-left shadow-sm">
-          <code class="flex-1 min-w-0 overflow-x-auto no-scrollbar whitespace-nowrap text-sm text-emerald-700 dark:text-emerald-200">npx skills add mgamalhz/smart-inbox</code>
-          <button type="button" class="copy-btn shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/15 transition-colors" data-copy="npx skills add mgamalhz/smart-inbox" data-ga-event="copy_install" data-ga-location="hero">Copy</button>
-        </div>
-        <p class="mt-3 text-sm text-slate-500 dark:text-gray-400">Then ask your coding agent: <span class="text-violet-700 dark:text-violet-200">"Add a smart inbox to this app."</span></p>
-        </div>
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
+            <a href="https://calendly.com/mgamalhz/free-45-min-backend-consultation?utm_source=smart-inbox&amp;utm_medium=website&amp;utm_content=hero" target="_blank" rel="noopener noreferrer" data-calendly
+              data-ga-event="booking_click" data-ga-location="smart_inbox_hero"
+              class="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-emerald-300 hover:bg-emerald-200 text-slate-950 text-base font-bold px-7 py-3.5 rounded-full transition-colors shadow-lg shadow-emerald-500/20">
+              Book a free 30-min call
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 6l6 6-6 6M19 12H5" /></svg>
+            </a>
+            <a href="#how-it-works" class="w-full sm:w-auto inline-flex justify-center items-center gap-2 border border-slate-300 dark:border-white/15 hover:bg-slate-100 dark:hover:bg-white/5 text-base font-semibold px-7 py-3.5 rounded-full transition-colors">
+              See how it works
+            </a>
+          </div>
 
+          <ul class="mt-7 flex flex-wrap justify-center lg:justify-start gap-x-5 gap-y-2 text-sm text-slate-500 dark:text-gray-400">
+            <li class="flex items-center gap-1.5"><svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>No subscription</li>
+            <li class="flex items-center gap-1.5"><svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>You own the code</li>
+            <li class="flex items-center gap-1.5"><svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Personal data never sent to the AI</li>
+          </ul>
+        </div>
 
         <!-- Animated inbox: plays on its own so the idea lands before anyone scrolls -->
         <div id="hero-inbox" class="hero-inbox w-full mx-auto max-w-xl rounded-3xl border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/70 backdrop-blur p-3 sm:p-4 shadow-2xl shadow-slate-300/50 dark:shadow-black/40" aria-label="An inbox turning on smart sorting">
@@ -171,54 +188,201 @@
       </div>
     </section>
 
-    <!-- What it does and never does -->
-    <section class="py-14 md:py-16 relative">
-      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-300 dark:via-white/20 to-transparent"></div>
-      <div class="w-fit mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-[auto_auto] gap-y-10 gap-x-24">
-        <div>
-          <h2 class="text-2xl font-bold">What your agent builds</h2>
-          <ul class="mt-5 space-y-3 text-sm text-slate-600 dark:text-gray-300">
-            <li class="flex gap-3"><span class="mt-0.5 w-5 h-5 shrink-0 grid place-items-center rounded-full bg-violet-100 dark:bg-violet-500/15 text-violet-600 dark:text-violet-300 text-xs font-bold" aria-hidden="true">✓</span><span>Labels with a reason</span></li>
-            <li class="flex gap-3"><span class="mt-0.5 w-5 h-5 shrink-0 grid place-items-center rounded-full bg-violet-100 dark:bg-violet-500/15 text-violet-600 dark:text-violet-300 text-xs font-bold" aria-hidden="true">✓</span><span>Draft replies, Arabic too</span></li>
-            <li class="flex gap-3"><span class="mt-0.5 w-5 h-5 shrink-0 grid place-items-center rounded-full bg-violet-100 dark:bg-violet-500/15 text-violet-600 dark:text-violet-300 text-xs font-bold" aria-hidden="true">✓</span><span>Off by default</span></li>
-            <li class="flex gap-3"><span class="mt-0.5 w-5 h-5 shrink-0 grid place-items-center rounded-full bg-violet-100 dark:bg-violet-500/15 text-violet-600 dark:text-violet-300 text-xs font-bold" aria-hidden="true">✓</span><span>Tested on fake data first</span></li>
-          </ul>
-        </div>
-        <div>
-          <h2 class="text-2xl font-bold">What it never does</h2>
-          <ul class="mt-5 space-y-3 text-sm text-slate-600 dark:text-gray-300">
-            <li class="flex gap-3"><span class="mt-0.5 w-5 h-5 shrink-0 grid place-items-center rounded-full bg-rose-100 dark:bg-rose-500/15 text-rose-600 dark:text-rose-300 text-xs font-bold" aria-hidden="true">✕</span><span>Act on its own</span></li>
-            <li class="flex gap-3"><span class="mt-0.5 w-5 h-5 shrink-0 grid place-items-center rounded-full bg-rose-100 dark:bg-rose-500/15 text-rose-600 dark:text-rose-300 text-xs font-bold" aria-hidden="true">✕</span><span>Decide money matters</span></li>
-            <li class="flex gap-3"><span class="mt-0.5 w-5 h-5 shrink-0 grid place-items-center rounded-full bg-rose-100 dark:bg-rose-500/15 text-rose-600 dark:text-rose-300 text-xs font-bold" aria-hidden="true">✕</span><span>Touch your database</span></li>
-            <li class="flex gap-3"><span class="mt-0.5 w-5 h-5 shrink-0 grid place-items-center rounded-full bg-rose-100 dark:bg-rose-500/15 text-rose-600 dark:text-rose-300 text-xs font-bold" aria-hidden="true">✕</span><span>Send personal data to the AI</span></li>
-          </ul>
-        </div>
+    <!-- What counts as an inbox -->
+    <section class="pb-14 md:pb-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+        <p class="text-sm font-medium text-slate-500 dark:text-gray-400">If it arrives and waits for a person, Smart Inbox handles it:</p>
+        <ul class="mt-4 flex flex-wrap justify-center gap-2">
+          <li class="rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-1.5 text-sm text-slate-600 dark:text-gray-300">Contact messages</li>
+          <li class="rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-1.5 text-sm text-slate-600 dark:text-gray-300">Reviews &amp; ratings</li>
+          <li class="rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-1.5 text-sm text-slate-600 dark:text-gray-300">Support requests</li>
+          <li class="rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-1.5 text-sm text-slate-600 dark:text-gray-300">Disputes</li>
+          <li class="rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-1.5 text-sm text-slate-600 dark:text-gray-300">Applications</li>
+        </ul>
       </div>
-      <p class="mt-10 px-4 text-center text-sm text-slate-500 dark:text-gray-400">A skill, not a package: the code it writes is yours. Built on <a href="https://laravel.com/docs/ai-sdk" class="text-violet-600 dark:text-violet-300 hover:underline">laravel/ai</a>.</p>
     </section>
 
-    <!-- Two paths -->
-    <section class="py-16 md:py-24 relative">
+    <!-- What you get / what it never does -->
+    <section class="py-14 md:py-16 relative">
       <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-300 dark:via-white/20 to-transparent"></div>
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="rounded-3xl border border-violet-400/25 bg-gradient-to-br from-violet-100 dark:from-violet-500/15 to-transparent p-7">
-          <p class="text-sm font-medium text-violet-700 dark:text-violet-200">For developers</p>
-          <h2 class="mt-2 text-2xl font-bold">Build it yourself</h2>
-          <p class="mt-2 text-sm text-slate-600 dark:text-gray-300 leading-relaxed">Free and open source.</p>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a href="#top" class="bg-violet-500 hover:bg-violet-400 text-white text-sm font-semibold px-5 py-3 rounded-full transition-colors" data-ga-event="install_click" data-ga-location="footer_cta">Install</a>
-            <a href="https://github.com/mgamalhz/smart-inbox" class="inline-flex items-center gap-2 border border-slate-300 dark:border-white/15 hover:bg-slate-100 dark:hover:bg-white/5 text-sm font-semibold px-5 py-3 rounded-full transition-colors" data-ga-event="github_click" data-ga-location="footer_cta"><svg class="w-4 h-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z" /></svg>View on GitHub</a>
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <h2 class="text-center text-3xl sm:text-4xl font-extrabold tracking-tight">What you get — and what you never risk</h2>
+        <p class="mt-4 text-center text-slate-600 dark:text-gray-300 max-w-2xl mx-auto">The boring stuff gets read first, so the two messages that actually matter are waiting at the top with a reply half-written.</p>
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="rounded-3xl border border-violet-400/25 bg-gradient-to-br from-violet-100 dark:from-violet-500/15 to-transparent p-7">
+            <h3 class="text-xl font-bold">What it does for you</h3>
+            <ul class="mt-5 space-y-3 text-sm text-slate-600 dark:text-gray-300">
+              <li class="flex gap-3"><span class="mt-0.5 w-5 h-5 shrink-0 grid place-items-center rounded-full bg-violet-100 dark:bg-violet-500/15 text-violet-600 dark:text-violet-300 text-xs font-bold" aria-hidden="true">✓</span><span><strong class="font-semibold text-slate-900 dark:text-white">Categories that fit your business</strong> — booking, complaint, brand deal, spam, whatever you call them.</span></li>
+              <li class="flex gap-3"><span class="mt-0.5 w-5 h-5 shrink-0 grid place-items-center rounded-full bg-violet-100 dark:bg-violet-500/15 text-violet-600 dark:text-violet-300 text-xs font-bold" aria-hidden="true">✓</span><span><strong class="font-semibold text-slate-900 dark:text-white">A priority and a one-line reason</strong> you can scan in seconds.</span></li>
+              <li class="flex gap-3"><span class="mt-0.5 w-5 h-5 shrink-0 grid place-items-center rounded-full bg-violet-100 dark:bg-violet-500/15 text-violet-600 dark:text-violet-300 text-xs font-bold" aria-hidden="true">✓</span><span><strong class="font-semibold text-slate-900 dark:text-white">A draft reply, ready to edit</strong> — in English or Arabic.</span></li>
+              <li class="flex gap-3"><span class="mt-0.5 w-5 h-5 shrink-0 grid place-items-center rounded-full bg-violet-100 dark:bg-violet-500/15 text-violet-600 dark:text-violet-300 text-xs font-bold" aria-hidden="true">✓</span><span><strong class="font-semibold text-slate-900 dark:text-white">A switch, off by default.</strong> Wrong label? One click teaches it better.</span></li>
+            </ul>
+          </div>
+          <div class="rounded-3xl border border-rose-400/25 bg-gradient-to-br from-rose-100 dark:from-rose-500/10 to-transparent p-7">
+            <h3 class="text-xl font-bold">What it will never do</h3>
+            <ul class="mt-5 space-y-3 text-sm text-slate-600 dark:text-gray-300">
+              <li class="flex gap-3"><span class="mt-0.5 w-5 h-5 shrink-0 grid place-items-center rounded-full bg-rose-100 dark:bg-rose-500/15 text-rose-600 dark:text-rose-300 text-xs font-bold" aria-hidden="true">✕</span><span><strong class="font-semibold text-slate-900 dark:text-white">Never replies, deletes or changes anything</strong> on its own.</span></li>
+              <li class="flex gap-3"><span class="mt-0.5 w-5 h-5 shrink-0 grid place-items-center rounded-full bg-rose-100 dark:bg-rose-500/15 text-rose-600 dark:text-rose-300 text-xs font-bold" aria-hidden="true">✕</span><span><strong class="font-semibold text-slate-900 dark:text-white">Never decides disputes, refunds</strong> or anything involving money.</span></li>
+              <li class="flex gap-3"><span class="mt-0.5 w-5 h-5 shrink-0 grid place-items-center rounded-full bg-rose-100 dark:bg-rose-500/15 text-rose-600 dark:text-rose-300 text-xs font-bold" aria-hidden="true">✕</span><span><strong class="font-semibold text-slate-900 dark:text-white">Never touches your database.</strong> The AI reads a message; it writes nothing.</span></li>
+              <li class="flex gap-3"><span class="mt-0.5 w-5 h-5 shrink-0 grid place-items-center rounded-full bg-rose-100 dark:bg-rose-500/15 text-rose-600 dark:text-rose-300 text-xs font-bold" aria-hidden="true">✕</span><span><strong class="font-semibold text-slate-900 dark:text-white">Never sees names, emails or phone numbers</strong> — they're stripped before anything is sent.</span></li>
+            </ul>
           </div>
         </div>
-        <div class="rounded-3xl border border-emerald-400/25 bg-gradient-to-br from-emerald-100 dark:from-emerald-500/15 to-transparent p-7">
-          <p class="text-sm font-medium text-emerald-700 dark:text-emerald-200">For business owners</p>
-          <h2 class="mt-2 text-2xl font-bold">Have it built into your system</h2>
-          <p class="mt-2 text-sm text-slate-600 dark:text-gray-300 leading-relaxed">I'll build it into the system you already run.</p>
-          <div class="mt-6">
-            <a href="https://calendly.com/mgamalhz/free-45-min-backend-consultation?utm_source=smart-inbox&amp;utm_medium=website&amp;utm_content=cta" target="_blank" rel="noopener noreferrer" data-calendly
-              data-ga-event="booking_click" data-ga-location="smart_inbox_cta"
-              class="inline-flex bg-emerald-300 hover:bg-emerald-200 text-slate-950 text-sm font-semibold px-5 py-3 rounded-full transition-colors">Book a free call</a>
+        <p class="mt-8 text-center text-sm text-slate-500 dark:text-gray-400">The code lives inside your app, and it is yours. Built on the official <a href="https://laravel.com/docs/ai-sdk" class="text-violet-600 dark:text-violet-300 hover:underline">laravel/ai</a> SDK — works with Anthropic, OpenAI, Gemini and the other providers it supports.</p>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how-it-works" class="py-16 md:py-24 relative">
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-300 dark:via-white/20 to-transparent"></div>
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <p class="text-center text-sm font-semibold uppercase tracking-widest text-violet-600 dark:text-violet-300">Done for you</p>
+        <h2 class="mt-2 text-center text-3xl sm:text-4xl font-extrabold tracking-tight">From messy inbox to sorted inbox in three steps</h2>
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="reveal relative rounded-3xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.03] p-7 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <span class="absolute -top-3 left-6 rounded-full bg-violet-600 text-white text-xs font-bold px-3 py-1" aria-hidden="true">1</span>
+            <span class="w-11 h-11 grid place-items-center rounded-xl bg-violet-100 dark:bg-violet-500/15 text-violet-600 dark:text-violet-300" aria-hidden="true">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2m-9 4h10M5 7h14a1 1 0 011 1v11a2 2 0 01-2 2H6a2 2 0 01-2-2V8a1 1 0 011-1z" /></svg>
+            </span>
+            <h3 class="mt-4 text-lg font-bold">Book a free call</h3>
+            <p class="mt-2 text-sm text-slate-600 dark:text-gray-300 leading-relaxed">Thirty minutes. We look at how messages reach you today and where the money leaks — no slides, no obligation.</p>
           </div>
+          <div class="reveal relative rounded-3xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.03] p-7 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <span class="absolute -top-3 left-6 rounded-full bg-violet-600 text-white text-xs font-bold px-3 py-1" aria-hidden="true">2</span>
+            <span class="w-11 h-11 grid place-items-center rounded-xl bg-violet-100 dark:bg-violet-500/15 text-violet-600 dark:text-violet-300" aria-hidden="true">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l-4 3 4 3m8-6l4 3-4 3M13 5l-2 14" /></svg>
+            </span>
+            <h3 class="mt-4 text-lg font-bold">I install it in your system</h3>
+            <p class="mt-2 text-sm text-slate-600 dark:text-gray-300 leading-relaxed">I add Smart Inbox to the Laravel app you already run, tuned to your labels — and tested on realistic fake data before anything real touches it.</p>
+          </div>
+          <div class="reveal relative rounded-3xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.03] p-7 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <span class="absolute -top-3 left-6 rounded-full bg-violet-600 text-white text-xs font-bold px-3 py-1" aria-hidden="true">3</span>
+            <span class="w-11 h-11 grid place-items-center rounded-xl bg-violet-100 dark:bg-violet-500/15 text-violet-600 dark:text-violet-300" aria-hidden="true">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+            </span>
+            <h3 class="mt-4 text-lg font-bold">You switch it on</h3>
+            <p class="mt-2 text-sm text-slate-600 dark:text-gray-300 leading-relaxed">Every new message arrives sorted with a draft reply. You skim, edit, send. The two minutes of reading becomes ten seconds of deciding.</p>
+          </div>
+        </div>
+        <p class="mt-8 text-center text-sm text-slate-500 dark:text-gray-400">Have a developer on staff? They can install the free skill themselves — same result, no invoice. <a href="#developers" class="text-violet-600 dark:text-violet-300 font-medium hover:underline">Jump to the developer guide ↓</a></p>
+      </div>
+    </section>
+
+    <!-- For developers -->
+    <section id="developers" class="py-16 md:py-24 relative">
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-300 dark:via-white/20 to-transparent"></div>
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="rounded-3xl border border-slate-800 bg-slate-950 text-white p-7 sm:p-10 shadow-2xl shadow-slate-300/50 dark:shadow-black/40 overflow-hidden relative">
+          <div class="blob w-72 h-72 bg-violet-600 -top-24 -right-24 opacity-30"></div>
+          <div class="relative">
+            <p class="text-sm font-semibold uppercase tracking-widest text-violet-300">For developers</p>
+            <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight">Free, open source, MIT.</h2>
+            <p class="mt-4 text-slate-300 leading-relaxed max-w-2xl">Smart Inbox is an <a href="https://agentskills.io" class="text-violet-300 hover:underline">agent skill</a>: your coding agent reads it and builds the feature inside your own app — your data, your design, your stack.</p>
+
+            <div class="mt-6 max-w-lg flex items-center gap-2 rounded-xl bg-white/10 border border-white/10 pl-4 pr-2 py-2">
+              <code class="flex-1 min-w-0 overflow-x-auto no-scrollbar whitespace-nowrap text-sm text-emerald-300">npx skills add mgamalhz/smart-inbox</code>
+              <button type="button" class="copy-btn shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium bg-white/10 hover:bg-white/20 transition-colors" data-copy="npx skills add mgamalhz/smart-inbox" data-ga-event="copy_install" data-ga-location="developers">Copy</button>
+            </div>
+
+            <ol class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
+              <li>
+                <p class="font-bold text-white">1. Run the command</p>
+                <p class="mt-1.5 text-slate-400 leading-relaxed">In your Laravel project. In Claude Code: <code class="text-emerald-300">/plugin marketplace add mgamalhz/smart-inbox</code></p>
+              </li>
+              <li>
+                <p class="font-bold text-white">2. Ask your agent</p>
+                <p class="mt-1.5 text-slate-400 leading-relaxed"><span class="text-violet-300">"Add a smart inbox to this app."</span> It finds your inboxes and agrees the labels with you first.</p>
+              </li>
+              <li>
+                <p class="font-bold text-white">3. Review &amp; switch on</p>
+                <p class="mt-1.5 text-slate-400 leading-relaxed">It builds, tests on fake data, and only then shows you the real thing — behind a switch that is off by default.</p>
+              </li>
+            </ol>
+
+            <ul class="mt-8 flex flex-wrap gap-2 text-xs text-slate-300">
+              <li class="rounded-full bg-white/10 px-3 py-1.5">Labels with a reason</li>
+              <li class="rounded-full bg-white/10 px-3 py-1.5">Draft replies, Arabic too</li>
+              <li class="rounded-full bg-white/10 px-3 py-1.5">Tests, fixtures &amp; eval command</li>
+              <li class="rounded-full bg-white/10 px-3 py-1.5">laravel/ai 1.x — Anthropic, OpenAI, Gemini…</li>
+            </ul>
+
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="https://github.com/mgamalhz/smart-inbox" class="inline-flex items-center gap-2 bg-violet-500 hover:bg-violet-400 text-white text-sm font-semibold px-5 py-3 rounded-full transition-colors" data-ga-event="github_click" data-ga-location="developers"><svg class="w-4 h-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z" /></svg>Star it on GitHub</a>
+              <a href="https://github.com/mgamalhz/smart-inbox#readme" class="inline-flex items-center gap-2 border border-white/20 hover:bg-white/10 text-sm font-semibold px-5 py-3 rounded-full transition-colors" data-ga-event="github_readme_click" data-ga-location="developers">Read the docs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-16 md:py-24 relative">
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-300 dark:via-white/20 to-transparent"></div>
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <h2 class="text-center text-3xl sm:text-4xl font-extrabold tracking-tight">Questions owners usually ask</h2>
+        <div class="mt-10 space-y-3">
+          <details class="faq group rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.03] px-5 py-4 open:shadow-md transition-shadow">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-left">Does it reply to my customers on its own?
+              <svg class="faq-icon w-5 h-5 shrink-0 text-violet-600 dark:text-violet-300 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14" /></svg>
+            </summary>
+            <p class="mt-3 text-sm text-slate-600 dark:text-gray-300 leading-relaxed">Never. It writes a draft reply and stops there. You read it, edit it if you like, and press send yourself — every single time.</p>
+          </details>
+          <details class="faq group rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.03] px-5 py-4 open:shadow-md transition-shadow">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-left">Where does my data go?
+              <svg class="faq-icon w-5 h-5 shrink-0 text-violet-600 dark:text-violet-300 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14" /></svg>
+            </summary>
+            <p class="mt-3 text-sm text-slate-600 dark:text-gray-300 leading-relaxed">Message content is sent to the AI provider you choose — Anthropic, OpenAI, Gemini or another supported by laravel/ai. Names, emails and phone numbers are stripped out first, and on the call we agree exactly what may and may not leave your server.</p>
+          </details>
+          <details class="faq group rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.03] px-5 py-4 open:shadow-md transition-shadow">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-left">What if it labels something wrong?
+              <svg class="faq-icon w-5 h-5 shrink-0 text-violet-600 dark:text-violet-300 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14" /></svg>
+            </summary>
+            <p class="mt-3 text-sm text-slate-600 dark:text-gray-300 leading-relaxed">Every item has a "Wrong label?" option. Corrections feed back so the system keeps improving, and nothing is ever acted on from a wrong label — drafts are proposals, not decisions.</p>
+          </details>
+          <details class="faq group rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.03] px-5 py-4 open:shadow-md transition-shadow">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-left">Do I need to replace my inbox or retrain my team?
+              <svg class="faq-icon w-5 h-5 shrink-0 text-violet-600 dark:text-violet-300 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14" /></svg>
+            </summary>
+            <p class="mt-3 text-sm text-slate-600 dark:text-gray-300 leading-relaxed">No. It layers on top of the inbox you already have inside your app. The switch is off by default — with it off, the screen is exactly what it was before.</p>
+          </details>
+          <details class="faq group rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.03] px-5 py-4 open:shadow-md transition-shadow">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-left">Is there a subscription?
+              <svg class="faq-icon w-5 h-5 shrink-0 text-violet-600 dark:text-violet-300 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14" /></svg>
+            </summary>
+            <p class="mt-3 text-sm text-slate-600 dark:text-gray-300 leading-relaxed">No. The skill itself is free and open source forever. If you'd rather not touch code, my done-for-you installation is a one-off project fee — we agree the scope and price on the free call before anything starts.</p>
+          </details>
+          <details class="faq group rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.03] px-5 py-4 open:shadow-md transition-shadow">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-left">My system isn't Laravel — can you still help?
+              <svg class="faq-icon w-5 h-5 shrink-0 text-violet-600 dark:text-violet-300 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14" /></svg>
+            </summary>
+            <p class="mt-3 text-sm text-slate-600 dark:text-gray-300 leading-relaxed">Smart Inbox is built on the official laravel/ai SDK, so it installs into Laravel apps. On the call we'll look at what you actually run — if it's not a fit, I'll tell you straight and point you in the right direction.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-16 md:py-24 relative">
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-300 dark:via-white/20 to-transparent"></div>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="reveal relative overflow-hidden rounded-3xl border border-emerald-400/30 bg-gradient-to-br from-emerald-100 dark:from-emerald-500/15 via-white dark:via-slate-900 to-violet-100 dark:to-violet-500/10 p-8 sm:p-12 text-center shadow-xl shadow-slate-300/40 dark:shadow-black/30">
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Let's find the money hiding in your inbox.</h2>
+          <p class="mt-4 text-slate-600 dark:text-gray-300 max-w-xl mx-auto">Thirty minutes, free, no slides. We look at your app together, and you leave knowing exactly what Smart Inbox would do for you — whether or not we ever work together.</p>
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a href="https://calendly.com/mgamalhz/free-45-min-backend-consultation?utm_source=smart-inbox&amp;utm_medium=website&amp;utm_content=footer_cta" target="_blank" rel="noopener noreferrer" data-calendly
+              data-ga-event="booking_click" data-ga-location="smart_inbox_footer_cta"
+              class="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-emerald-300 hover:bg-emerald-200 text-slate-950 text-base font-bold px-8 py-3.5 rounded-full transition-colors shadow-lg shadow-emerald-500/25">
+              Book the free call
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 6l6 6-6 6M19 12H5" /></svg>
+            </a>
+            <a href="https://wa.me/201272711137?text=Hi%20Mohamed%2C%20I%20saw%20Smart%20Inbox%20and%20I%27d%20like%20to%20talk%20about%20it." target="_blank" rel="noopener noreferrer"
+              data-ga-event="whatsapp_click" data-ga-location="smart_inbox_footer_cta"
+              class="w-full sm:w-auto inline-flex justify-center items-center gap-2 border border-slate-300 dark:border-white/15 hover:bg-white dark:hover:bg-white/5 text-base font-semibold px-8 py-3.5 rounded-full transition-colors">
+              <svg class="w-4 h-4 text-emerald-500" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.03c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.13-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.24-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.29z" /></svg>
+              Prefer WhatsApp?
+            </a>
+          </div>
+          <p class="mt-5 text-xs text-slate-500 dark:text-gray-400">Free 30-minute consultation · No obligation · Fixed quote before any work starts</p>
         </div>
       </div>
     </section>
@@ -227,7 +391,10 @@
   <footer class="border-t border-slate-200 dark:border-white/10 py-8">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500 dark:text-gray-500">
       <span>Built by <a href="https://mgamalhz.com" class="font-medium text-slate-700 dark:text-gray-200 underline-offset-4 hover:underline" data-ga-event="home_click" data-ga-location="smart_inbox_footer">Mohamed Gamal</a>, backend engineer &amp; technical partner.</span>
-      <span>Smart Inbox is MIT licensed.</span>
+      <span class="flex items-center gap-4">
+        <a href="https://github.com/mgamalhz/smart-inbox" class="hover:text-slate-800 dark:hover:text-gray-200 underline-offset-4 hover:underline" data-ga-event="github_click" data-ga-location="footer">GitHub</a>
+        <span>MIT licensed</span>
+      </span>
     </div>
   </footer>
 
@@ -252,6 +419,24 @@
           var step = steps[i];
           setTimeout(function () { step[1](); i = (i + 1) % steps.length; next(); }, step[0]);
         }());
+      }());
+
+      // Reveal on scroll: subtle lift for cards and bands. Reduced motion shows everything immediately.
+      (function () {
+        var els = document.querySelectorAll('.reveal');
+        if (!els.length) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+          els.forEach(function (el) { el.classList.add('is-visible'); });
+          return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          });
+        }, { threshold: 0.15 });
+        els.forEach(function (el) { io.observe(el); });
       }());
 
       document.getElementById('theme-toggle').addEventListener('click', function () {
