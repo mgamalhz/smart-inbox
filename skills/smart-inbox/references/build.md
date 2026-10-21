@@ -263,6 +263,27 @@ The smart view is opt-in per user and off by default:
 - If the page is opened with a filter while the switch is off, return to the
   unfiltered list, so nobody sees a narrowed list with no tabs to explain it.
 
+**Server-rendered React (Next.js, Inertia SSR).** Read the stored choice with
+`useSyncExternalStore(subscribe, readFromStorage, () => false)`, not `useState`
+plus `useEffect`: it renders "off" on the server and during hydration, then the
+real value, with no mismatch. Any effect that reacts to "off" (such as clearing
+the filter above) must also wait until hydration is done, or it fires on every
+page load before the real value is read:
+
+```tsx
+const hydrated = useSyncExternalStore(() => () => {}, () => true, () => false);
+
+useEffect(() => {
+  if (hydrated && !smartOn && smartFilter) router.replace(unfilteredUrl);
+}, [hydrated, smartOn, smartFilter]);
+```
+
+**Translation files.** Insert the new keys as text. Re-serialising the whole
+JSON file reformats lines nobody touched and buries the change in the diff.
+
+**API-only backends.** Return a JSON body from small endpoints such as "wrong
+label", not 204, when the frontend's fetch helper always parses JSON.
+
 ## 8. Tests
 
 ```php

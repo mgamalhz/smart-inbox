@@ -35,10 +35,13 @@ the database.
      full test suite before and after.
    - Ask before running `composer require "laravel/ai:^1.0" -W`.
    - Publish only the config: `php artisan vendor:publish --tag=ai-config`.
-2. **Data consent.** Items will be sent to an AI provider, and they were often
+2. **Leave other work alone.** If the project has uncommitted changes or is on
+   someone's branch, do not build on top of them: work in a new branch, or a git
+   worktree with its own database, so the owner's work stays as it was.
+3. **Data consent.** Items will be sent to an AI provider, and they were often
    written by the app's own users. Confirm the owner is fine with that and which
    provider is acceptable. Use fake data until then.
-3. **Optional reviews.** If the
+4. **Optional reviews.** If the
    [`laravel-skills`](https://github.com/mgamalhz/laravel-skills) skills are
    installed, run the ones named in [Verify](#verify). If not, carry on; this
    skill lists its own checks.
@@ -100,6 +103,13 @@ See [Evaluate](#evaluate) and [Verify](#verify), then hand over with the
   and names what is missing. It never says who is right or what the outcome
   should be.
 
+### The output is as visible as the item
+
+- Whoever can see the item sees its label, summary and draft. If some roles may
+  not see a field (an amount, a phone number, a private note), that field must
+  never reach the model, or it can leak through the summary. Check the item's
+  resource and policies for fields hidden per role before choosing the context.
+
 ### Each user sees only their own items
 
 - Results live in their own table keyed to the item, and are read only through
@@ -150,7 +160,12 @@ See [Evaluate](#evaluate) and [Verify](#verify), then hand over with the
   Never send automatically.
 - **"Wrong label?"** stores feedback that becomes new test cases.
 - **Unlabelled is normal.** New items show immediately; labels arrive seconds later.
+- **Speak every language the app speaks.** If the app stores text in several
+  languages (`{ar, en}`), ask the model for every field in all of them in the
+  same call, and show the one matching the user's locale.
 - Follow the app's own design system and both reading directions (RTL and LTR).
+  Pick an AI accent that suits the palette (a muted violet next to an ivory and
+  burgundy theme, a brighter one next to a vivid brand).
   If the app is API-only, expose the fields in the API and document the same
   rules for whoever builds the screen.
 
@@ -179,6 +194,7 @@ grep -rnE 'whereRaw|DB::(statement|select|raw)' app/Ai      # nothing built from
 grep -rnL '#\[Timeout\(' app/Ai/Agents/*.php                # every agent sets a timeout
 grep -rnE '\{!!|dangerouslySetInnerHTML' resources | grep -iE 'triage|inbox|reason|draft'   # model text never as HTML
 git diff --stat                                           # no unrelated formatting changes
+git diff -- '*.json' | grep '^-' | grep -v '^---'           # translation files: only a comma before the new block
 ```
 
 ## Report format
