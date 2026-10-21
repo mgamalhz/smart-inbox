@@ -214,6 +214,11 @@ category fails the job instead of reaching the screen.
 - Eager load: `$profile->messages()->with('triage')->latest()->paginate(30)`.
 - Filters run in SQL on the joined triage columns, so "Important" is a query,
   not a client-side filter over one page.
+- Tab counts come from one aggregate query with a left join on the results
+  table. Two traps: a relation with a default order (`hasMany(...)->latest()`)
+  needs `->reorder()` before an aggregate, and if the test database differs from
+  production (SQLite in tests, PostgreSQL live), write the counts portably with
+  `sum(case when ... then 1 else 0 end)` instead of `count(*) filter (where ...)`.
 - Untriaged messages appear in "All" and at the top of their date group, with
   no badge.
 - The suggested reply is behind a "Suggested reply" toggle with Copy and
