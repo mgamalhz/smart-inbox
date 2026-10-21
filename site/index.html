@@ -49,7 +49,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=IBM+Plex+Sans+Arabic:wght@400;500&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
-  <link rel="stylesheet" href="/style.css?v=a8cd8709b7">
+  <link rel="stylesheet" href="/style.css?v=bd12b0864c">
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white antialiased font-sans">
@@ -118,10 +118,10 @@
             </div>
             <span class="toggle relative w-10 h-6 rounded-full" aria-hidden="true"><span class="knob absolute top-0.5 w-5 h-5 rounded-full bg-white shadow"></span></span>
           </div>
-          <div class="tabs flex gap-1.5 px-1">
-            <span class="rounded-full bg-violet-500 text-white px-2.5 py-1 text-[11px] font-medium">All 4</span>
-            <span class="rounded-full bg-violet-100 dark:bg-violet-500/15 text-violet-700 dark:text-violet-200 px-2.5 py-1 text-[11px] font-medium">Important 2</span>
-            <span class="rounded-full bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-gray-300 px-2.5 py-1 text-[11px]">Spam 2</span>
+          <div class="mt-3 flex gap-1.5 px-1">
+            <span class="tab-all rounded-full px-2.5 py-1 text-[11px] font-medium">All 4</span>
+            <span class="tab-extra rounded-full bg-violet-100 dark:bg-violet-500/15 text-violet-700 dark:text-violet-200 px-2.5 py-1 text-[11px] font-medium">Important 2</span>
+            <span class="tab-extra rounded-full bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-gray-300 px-2.5 py-1 text-[11px]">Spam 2</span>
           </div>
           <ul class="mt-3 space-y-2">
             <li class="row is-spam rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.03] px-3.5 py-3 text-left" style="--i:0">
@@ -131,8 +131,8 @@
                   <span class="lbl rounded-full px-2 py-0.5 text-[11px] font-medium bg-slate-100 dark:bg-white/10 text-slate-500 dark:text-gray-400">Likely spam</span>
                 </div>
               </div>
-              <p class="why text-xs text-violet-700 dark:text-violet-200/90">✦ A prize scam with a link.</p>
               <p class="mt-1 text-[13px] text-slate-600 dark:text-gray-300 truncate">You won a free iPhone 17! Claim now: bit.ly/win</p>
+              <div class="slot relative mt-1 h-4 text-xs"><span class="when absolute inset-0 text-slate-400 dark:text-gray-500">2 min ago</span><span class="why absolute inset-0 truncate text-violet-700 dark:text-violet-200/90">✦ A prize scam with a link.</span></div>
             </li>
             <li class="row is-important rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.03] px-3.5 py-3 text-left" style="--i:1">
               <div class="flex items-center justify-between gap-2">
@@ -141,9 +141,9 @@
                   <span class="lbl rounded-full px-2 py-0.5 text-[11px] font-medium bg-amber-100 dark:bg-amber-400/15 text-amber-800 dark:text-amber-200">Brand deal</span><span class="lbl rounded-full px-2 py-0.5 text-[11px] font-semibold bg-violet-100 dark:bg-violet-500/20 text-violet-700 dark:text-violet-200">Important</span>
                 </div>
               </div>
-              <p class="why text-xs text-violet-700 dark:text-violet-200/90">✦ A brand offering paid work.</p>
               <p class="mt-1 text-[13px] text-slate-600 dark:text-gray-300 truncate">We'd love a paid reel for our launch. Budget is flexible.</p>
-              <div class="draft mt-2 rounded-lg border border-violet-400/25 bg-violet-50 dark:bg-violet-500/10 px-3 py-2 text-xs text-slate-700 dark:text-gray-200 text-left">
+              <div class="slot relative mt-1 h-4 text-xs"><span class="when absolute inset-0 text-slate-400 dark:text-gray-500">9 min ago</span><span class="why absolute inset-0 truncate text-violet-700 dark:text-violet-200/90">✦ A brand offering paid work.</span></div>
+              <div class="draft rounded-lg border border-violet-400/40 bg-violet-50 dark:bg-[#211a3d] px-3 py-2 text-xs text-slate-700 dark:text-gray-200 text-left">
                 <span class="font-semibold text-violet-700 dark:text-violet-300">Suggested reply:</span> Thanks for reaching out! Could you share the dates and deliverables?
               </div>
             </li>
@@ -154,8 +154,8 @@
                   <span class="lbl rounded-full px-2 py-0.5 text-[11px] font-medium bg-slate-100 dark:bg-white/10 text-slate-500 dark:text-gray-400">Likely spam</span>
                 </div>
               </div>
-              <p class="why text-xs text-violet-700 dark:text-violet-200/90">✦ Fake followers promotion.</p>
               <p class="mt-1 text-[13px] text-slate-600 dark:text-gray-300 truncate">BUY 10K FOLLOWERS FOR $5</p>
+              <div class="slot relative mt-1 h-4 text-xs"><span class="when absolute inset-0 text-slate-400 dark:text-gray-500">14 min ago</span><span class="why absolute inset-0 truncate text-violet-700 dark:text-violet-200/90">✦ Fake followers promotion.</span></div>
             </li>
             <li class="row is-important rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.03] px-3.5 py-3 text-left" style="--i:3">
               <div class="flex items-center justify-between gap-2">
@@ -164,8 +164,8 @@
                   <span class="lbl rounded-full px-2 py-0.5 text-[11px] font-medium bg-emerald-100 dark:bg-emerald-400/15 text-emerald-800 dark:text-emerald-200">Booking</span><span class="lbl rounded-full px-2 py-0.5 text-[11px] font-semibold bg-violet-100 dark:bg-violet-500/20 text-violet-700 dark:text-violet-200">Important</span>
                 </div>
               </div>
-              <p class="why text-xs text-violet-700 dark:text-violet-200/90">✦ Wants to book a shoot this week.</p>
               <p class="mt-1 text-[13px] text-slate-600 dark:text-gray-300 truncate">How much to shoot 20 perfume products this week?</p>
+              <div class="slot relative mt-1 h-4 text-xs"><span class="when absolute inset-0 text-slate-400 dark:text-gray-500">21 min ago</span><span class="why absolute inset-0 truncate text-violet-700 dark:text-violet-200/90">✦ Wants to book a shoot this week.</span></div>
             </li>
           </ul>
         </div>
@@ -396,17 +396,6 @@
       (function () {
         var box = document.getElementById('hero-inbox');
         if (!box) return;
-        // Reserve the height of the fullest state so the page below never jumps while it loops.
-        function reserveHeight() {
-          var had = box.className;
-          box.style.minHeight = '';
-          box.classList.add('no-anim', 'is-on', 'show-draft');
-          var h = box.offsetHeight;
-          box.className = had;
-          box.style.minHeight = h + 'px';
-        }
-        reserveHeight();
-        window.addEventListener('resize', reserveHeight);
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
           box.classList.add('is-on', 'show-draft');
           return;
@@ -415,7 +404,7 @@
           [1800, function () { box.classList.add('is-on'); }],
           [2600, function () { box.classList.add('show-draft'); }],
           [3200, function () { box.classList.remove('show-draft'); }],
-          [700, function () { box.classList.remove('is-on'); }]
+          [900, function () { box.classList.remove('is-on'); }]
         ];
         var i = 0;
         (function next() {
