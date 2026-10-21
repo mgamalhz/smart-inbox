@@ -49,7 +49,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=IBM+Plex+Sans+Arabic:wght@400;500&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
-  <link rel="stylesheet" href="/style.css?v=f2267def41">
+  <link rel="stylesheet" href="/style.css?v=2ac1076923">
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white antialiased font-sans">
@@ -134,6 +134,10 @@
               <span class="live-dot w-2 h-2 rounded-full bg-emerald-500" aria-hidden="true"></span>
             </div>
             <span class="toggle relative w-10 h-6 rounded-full" aria-hidden="true"><span class="knob absolute top-0.5 w-5 h-5 rounded-full bg-white shadow"></span></span>
+          </div>
+          <div class="mt-3 flex items-center gap-2 px-1">
+            <p id="demo-caption" class="demo-caption flex-1 text-xs font-medium text-slate-500 dark:text-gray-400">Your inbox, as it looks today.</p>
+            <span class="flex shrink-0 gap-1" aria-hidden="true"><i class="dot dot-active"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span>
           </div>
           <div class="mt-3 flex gap-1.5 px-1">
             <span class="tab-all rounded-full px-2.5 py-1 text-[11px] font-medium">All 4</span>
@@ -419,16 +423,35 @@
           clearInterval(draftTimer);
           draftTimer = null;
         }
+        var captionEl = box.querySelector('#demo-caption');
+        var dots = box.querySelectorAll('.dot');
+        var captions = [
+          'Your inbox, as it looks today.',
+          'Smart Inbox reads and labels each one.',
+          'Spam fades. The money messages glow.',
+          'A reply is drafted. You review and send.'
+        ];
+        function setPhase(n) {
+          if (!captionEl) return;
+          captionEl.style.opacity = 0;
+          setTimeout(function () {
+            captionEl.textContent = captions[n];
+            dots.forEach(function (d, i) { d.classList.toggle('dot-active', i === n); });
+            captionEl.style.opacity = 1;
+          }, 180);
+        }
         if (reduceMotion) {
           box.classList.add('is-on', 'show-draft');
           startDraft();
+          setPhase(3);
           return;
         }
         var steps = [
-          [1800, function () { box.classList.add('is-on'); }],
-          [4300, function () { box.classList.add('show-draft'); startDraft(); }],
-          [5200, function () { box.classList.remove('show-draft'); stopDraft(); }],
-          [1000, function () { box.classList.remove('is-on'); }]
+          [1800, function () { box.classList.add('is-on'); setPhase(1); }],
+          [3400, function () { setPhase(2); }],
+          [1800, function () { box.classList.add('show-draft'); startDraft(); setPhase(3); }],
+          [4600, function () { box.classList.remove('show-draft'); stopDraft(); }],
+          [900, function () { box.classList.remove('is-on'); setPhase(0); }]
         ];
         var i = 0;
         (function next() {

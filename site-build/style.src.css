@@ -75,6 +75,12 @@
   .draft .caret { display: inline-block; width: 2px; height: 0.95em; margin-left: 1px; background: currentColor; vertical-align: -0.12em; animation: caret-blink 0.8s steps(1, end) infinite; }
   @keyframes caret-blink { 50% { opacity: 0; } }
 
+  /* Phase caption and progress dots: the caption narrates what the loop is doing
+     and the dots mark which of the four beats the visitor is watching. */
+  .demo-caption { transition: opacity 0.18s ease; }
+  .hero-inbox .dot { width: 5px; height: 5px; border-radius: 9999px; background: rgba(148, 163, 184, 0.5); transition: background-color 0.3s ease, transform 0.3s ease; }
+  .hero-inbox .dot-active { background: #8b5cf6; transform: scale(1.35); }
+
   /* Reveal on scroll: cards and bands lift in once, then stay. JS adds .is-visible;
      reduced motion shows everything immediately without the transition. */
   .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
