@@ -49,7 +49,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=IBM+Plex+Sans+Arabic:wght@400;500&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
-  <link rel="stylesheet" href="/style.css?v=2f9b2ab8d4">
+  <link rel="stylesheet" href="/style.css?v=a8cd8709b7">
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white antialiased font-sans">
@@ -80,17 +80,18 @@
 
   <main>
     <!-- Hero -->
-    <section id="top" class="relative overflow-hidden pt-36 pb-14 md:pt-44 md:pb-16">
+    <section id="top" class="relative overflow-hidden pt-32 pb-14 md:pt-36 md:pb-16 lg:pt-40">
       <div class="blob w-96 h-96 bg-violet-600 top-10 -left-48 opacity-25 dark:opacity-40"></div>
       <div class="blob w-80 h-80 bg-emerald-500 top-40 -right-40 opacity-25 dark:opacity-40"></div>
       <div class="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.04)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
 
-      <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-14 items-center">
+        <div class="text-center lg:text-left">
         <p class="inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-50 dark:bg-violet-500/10 px-3 py-1 text-xs font-medium text-violet-700 dark:text-violet-200">
           <span class="w-1.5 h-1.5 rounded-full bg-violet-500 dark:bg-violet-300"></span>
           Free agent skill for Laravel
         </p>
-        <h1 class="mt-6 text-4xl sm:text-6xl font-extrabold tracking-[-0.03em] leading-[1.08]">
+        <h1 class="mt-6 text-4xl sm:text-6xl lg:text-[3.6rem] font-extrabold tracking-[-0.03em] leading-[1.08]">
           Your inbox just got <span class="text-violet-600 dark:text-violet-300 whitespace-nowrap">a brain.</span>
         </h1>
         <p class="mt-5 text-lg sm:text-xl text-slate-600 dark:text-gray-300 leading-relaxed">
@@ -98,15 +99,16 @@
           <span class="block mt-1 text-slate-900 dark:text-white font-semibold">It suggests. You decide.</span>
         </p>
 
-        <div class="mt-8 mx-auto max-w-md flex items-center gap-2 rounded-xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/10 pl-4 pr-2 py-2 text-left shadow-sm">
+        <div class="mt-8 mx-auto lg:mx-0 max-w-md flex items-center gap-2 rounded-xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/10 pl-4 pr-2 py-2 text-left shadow-sm">
           <code class="flex-1 min-w-0 overflow-x-auto no-scrollbar whitespace-nowrap text-sm text-emerald-700 dark:text-emerald-200">npx skills add mgamalhz/smart-inbox</code>
           <button type="button" class="copy-btn shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/15 transition-colors" data-copy="npx skills add mgamalhz/smart-inbox" data-ga-event="copy_install" data-ga-location="hero">Copy</button>
         </div>
         <p class="mt-3 text-sm text-slate-500 dark:text-gray-400">Then ask your coding agent: <span class="text-violet-700 dark:text-violet-200">"Add a smart inbox to this app."</span></p>
+        </div>
 
 
         <!-- Animated inbox: plays on its own so the idea lands before anyone scrolls -->
-        <div id="hero-inbox" class="hero-inbox mt-12 mx-auto max-w-xl rounded-3xl border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/70 backdrop-blur p-3 sm:p-4 shadow-2xl shadow-slate-300/50 dark:shadow-black/40" aria-label="An inbox turning on smart sorting">
+        <div id="hero-inbox" class="hero-inbox w-full mx-auto max-w-xl rounded-3xl border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/70 backdrop-blur p-3 sm:p-4 shadow-2xl shadow-slate-300/50 dark:shadow-black/40" aria-label="An inbox turning on smart sorting">
           <div class="flex items-center justify-between gap-3 rounded-2xl border border-violet-400/20 bg-gradient-to-r from-violet-100 dark:from-violet-500/10 via-fuchsia-500/5 to-transparent px-3.5 py-2.5">
             <div class="flex items-center gap-2.5">
               <span class="w-7 h-7 grid place-items-center rounded-lg bg-gradient-to-br from-violet-600 to-fuchsia-500 text-white">
