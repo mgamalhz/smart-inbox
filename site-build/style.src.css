@@ -39,6 +39,11 @@
   .hero-inbox.is-on .mode-off { display: none; }
   .hero-inbox.is-on .mode-on { display: inline-flex; }
 
+  /* Note above the demo: one sentence at a time, Before swaps to After on toggle. */
+  #demo-note .note-after { display: none; }
+  #demo-note.is-on .note-before { display: none; }
+  #demo-note.is-on .note-after { display: inline; }
+
   .hero-inbox .tab-all { background: rgba(148, 163, 184, 0.18); color: inherit; transition: background-color 0.3s ease, color 0.3s ease; }
   .hero-inbox.is-on .tab-all { background: #8b5cf6; color: #fff; }
   .hero-inbox .tab-extra { opacity: 0; transform: translateX(-4px); transition: opacity 0.3s ease, transform 0.3s ease; }
