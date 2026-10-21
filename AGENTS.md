@@ -16,3 +16,8 @@ exposes the folder in `skills/`.
   is optional: reference its skills by name where they help, but keep the
   essential checks in this skill.
 - After any change: `claude plugin validate .` must pass.
+
+## Deployment
+
+The landing page in `site/` is released by pushing to `main` and pulling on the
+server. Follow [DEPLOYMENT.md](DEPLOYMENT.md).
