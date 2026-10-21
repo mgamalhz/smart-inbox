@@ -6,8 +6,15 @@
     "name": "Mohamed Gamal",
     "url": "https://mgamalhz.com"
   },
-  "homepage": "https://mgamalhz.com/smart-inbox",
+  "homepage": "https://smart-inbox.mgamalhz.com",
   "repository": "https://github.com/mgamalhz/smart-inbox",
   "license": "MIT",
-  "keywords": ["laravel", "ai", "laravel-ai", "inbox", "triage", "arabic"]
+  "keywords": [
+    "laravel",
+    "ai",
+    "laravel-ai",
+    "inbox",
+    "triage",
+    "arabic"
+  ]
 }

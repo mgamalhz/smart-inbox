@@ -11,7 +11,7 @@ data, your design and your stack.
 
 > `0.x`: tested on real projects, still improving.
 
-More: [mgamalhz.com/smart-inbox](https://mgamalhz.com/smart-inbox)
+Demo and details: [smart-inbox.mgamalhz.com](https://smart-inbox.mgamalhz.com)
 
 ## Install
 
