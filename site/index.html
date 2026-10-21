@@ -49,7 +49,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=IBM+Plex+Sans+Arabic:wght@400;500&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
-  <link rel="stylesheet" href="/style.css?v=516523184b">
+  <link rel="stylesheet" href="/style.css?v=2f9b2ab8d4">
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white antialiased font-sans">
@@ -103,6 +103,70 @@
           <button type="button" class="copy-btn shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/15 transition-colors" data-copy="npx skills add mgamalhz/smart-inbox" data-ga-event="copy_install" data-ga-location="hero">Copy</button>
         </div>
         <p class="mt-3 text-sm text-slate-500 dark:text-gray-400">Then ask your coding agent: <span class="text-violet-700 dark:text-violet-200">"Add a smart inbox to this app."</span></p>
+
+
+        <!-- Animated inbox: plays on its own so the idea lands before anyone scrolls -->
+        <div id="hero-inbox" class="hero-inbox mt-12 mx-auto max-w-xl rounded-3xl border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/70 backdrop-blur p-3 sm:p-4 shadow-2xl shadow-slate-300/50 dark:shadow-black/40" aria-label="An inbox turning on smart sorting">
+          <div class="flex items-center justify-between gap-3 rounded-2xl border border-violet-400/20 bg-gradient-to-r from-violet-100 dark:from-violet-500/10 via-fuchsia-500/5 to-transparent px-3.5 py-2.5">
+            <div class="flex items-center gap-2.5">
+              <span class="w-7 h-7 grid place-items-center rounded-lg bg-gradient-to-br from-violet-600 to-fuchsia-500 text-white">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l1.9 5.6 5.6 1.9-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.9L12 2.5zm6.5 11.5l.9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9.9-2.6z" /></svg>
+              </span>
+              <span class="text-sm font-semibold">Smart inbox</span>
+            </div>
+            <span class="toggle relative w-10 h-6 rounded-full" aria-hidden="true"><span class="knob absolute top-0.5 w-5 h-5 rounded-full bg-white shadow"></span></span>
+          </div>
+          <div class="tabs flex gap-1.5 px-1">
+            <span class="rounded-full bg-violet-500 text-white px-2.5 py-1 text-[11px] font-medium">All 4</span>
+            <span class="rounded-full bg-violet-100 dark:bg-violet-500/15 text-violet-700 dark:text-violet-200 px-2.5 py-1 text-[11px] font-medium">Important 2</span>
+            <span class="rounded-full bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-gray-300 px-2.5 py-1 text-[11px]">Spam 2</span>
+          </div>
+          <ul class="mt-3 space-y-2">
+            <li class="row is-spam rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.03] px-3.5 py-3 text-left" style="--i:0">
+              <div class="flex items-center justify-between gap-2">
+                <p class="text-[13px] font-semibold truncate">Win Prizes</p>
+                <div class="flex shrink-0 gap-1">
+                  <span class="lbl rounded-full px-2 py-0.5 text-[11px] font-medium bg-slate-100 dark:bg-white/10 text-slate-500 dark:text-gray-400">Likely spam</span>
+                </div>
+              </div>
+              <p class="why text-xs text-violet-700 dark:text-violet-200/90">✦ A prize scam with a link.</p>
+              <p class="mt-1 text-[13px] text-slate-600 dark:text-gray-300 truncate">You won a free iPhone 17! Claim now: bit.ly/win</p>
+            </li>
+            <li class="row is-important rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.03] px-3.5 py-3 text-left" style="--i:1">
+              <div class="flex items-center justify-between gap-2">
+                <p class="text-[13px] font-semibold truncate">Noor Skincare</p>
+                <div class="flex shrink-0 gap-1">
+                  <span class="lbl rounded-full px-2 py-0.5 text-[11px] font-medium bg-amber-100 dark:bg-amber-400/15 text-amber-800 dark:text-amber-200">Brand deal</span><span class="lbl rounded-full px-2 py-0.5 text-[11px] font-semibold bg-violet-100 dark:bg-violet-500/20 text-violet-700 dark:text-violet-200">Important</span>
+                </div>
+              </div>
+              <p class="why text-xs text-violet-700 dark:text-violet-200/90">✦ A brand offering paid work.</p>
+              <p class="mt-1 text-[13px] text-slate-600 dark:text-gray-300 truncate">We'd love a paid reel for our launch. Budget is flexible.</p>
+              <div class="draft mt-2 rounded-lg border border-violet-400/25 bg-violet-50 dark:bg-violet-500/10 px-3 py-2 text-xs text-slate-700 dark:text-gray-200 text-left">
+                <span class="font-semibold text-violet-700 dark:text-violet-300">Suggested reply:</span> Thanks for reaching out! Could you share the dates and deliverables?
+              </div>
+            </li>
+            <li class="row is-spam rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.03] px-3.5 py-3 text-left" style="--i:2">
+              <div class="flex items-center justify-between gap-2">
+                <p class="text-[13px] font-semibold truncate">Followers Boost</p>
+                <div class="flex shrink-0 gap-1">
+                  <span class="lbl rounded-full px-2 py-0.5 text-[11px] font-medium bg-slate-100 dark:bg-white/10 text-slate-500 dark:text-gray-400">Likely spam</span>
+                </div>
+              </div>
+              <p class="why text-xs text-violet-700 dark:text-violet-200/90">✦ Fake followers promotion.</p>
+              <p class="mt-1 text-[13px] text-slate-600 dark:text-gray-300 truncate">BUY 10K FOLLOWERS FOR $5</p>
+            </li>
+            <li class="row is-important rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.03] px-3.5 py-3 text-left" style="--i:3">
+              <div class="flex items-center justify-between gap-2">
+                <p class="text-[13px] font-semibold truncate">Khalid</p>
+                <div class="flex shrink-0 gap-1">
+                  <span class="lbl rounded-full px-2 py-0.5 text-[11px] font-medium bg-emerald-100 dark:bg-emerald-400/15 text-emerald-800 dark:text-emerald-200">Booking</span><span class="lbl rounded-full px-2 py-0.5 text-[11px] font-semibold bg-violet-100 dark:bg-violet-500/20 text-violet-700 dark:text-violet-200">Important</span>
+                </div>
+              </div>
+              <p class="why text-xs text-violet-700 dark:text-violet-200/90">✦ Wants to book a shoot this week.</p>
+              <p class="mt-1 text-[13px] text-slate-600 dark:text-gray-300 truncate">How much to shoot 20 perfume products this week?</p>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -213,7 +277,7 @@
         { from: 'Sara', body: 'Hello', label: 'question', priority: 'low', reason: 'A greeting with no request yet.' },
         { from: 'Noor Skincare', body: 'Hi, we are launching a new serum next month and would love a paid reel and two stories. Budget is flexible. When can we talk?', label: 'deal', priority: 'high', reason: 'A brand offering paid work next month.', reply: 'Hi Noor Skincare team, thank you for thinking of us! We would be glad to hear more about the launch. Could you share the deliverables and dates you have in mind? Happy to set up a call this week.' },
         { from: 'Followers Boost', body: 'BUY 10K FOLLOWERS FOR $5. CHEAPEST PRICE GUARANTEED.', label: 'spam', priority: 'low', reason: 'Bulk promotion for fake followers.' },
-        { from: 'Khalid', body: 'كم سعر تصوير ٢٠ منتج عطور؟ وايش المواعيد المتاحة هالأسبوع؟', rtl: true, label: 'booking', priority: 'high', reason: 'Wants to book a product shoot this week and asks the price.', reply: 'هلا خالد، شكراً لتواصلك! يسعدنا تصوير منتجاتك. نرسل لك الأسعار والمواعيد المتاحة هذا الأسبوع، وإذا عندك صور مرجعية للأسلوب اللي تحبه شاركنا إياها.' },
+        { from: 'Khalid', body: 'How much to shoot 20 perfume products? Which days are free this week?', label: 'booking', priority: 'high', reason: 'Wants to book a product shoot this week and asks the price.', reply: 'Hi Khalid, thanks for reaching out! Happy to shoot your products. I will send prices and the free days this week. If you have reference photos of the style you like, please share them.' },
         { from: 'Maha', body: 'Do you shoot outside Riyadh? I am in Khobar.', label: 'question', priority: 'normal', reason: 'Asks about shoots in another city.' }
       ];
       var labels = {
@@ -325,6 +389,38 @@
 
       sw.addEventListener('click', function () { smart = !smart; render(); });
       render();
+
+      // Hero inbox loop: off, switch on, labels arrive, draft opens, back off. Reduced motion shows it on.
+      (function () {
+        var box = document.getElementById('hero-inbox');
+        if (!box) return;
+        // Reserve the height of the fullest state so the page below never jumps while it loops.
+        function reserveHeight() {
+          var had = box.className;
+          box.style.minHeight = '';
+          box.classList.add('no-anim', 'is-on', 'show-draft');
+          var h = box.offsetHeight;
+          box.className = had;
+          box.style.minHeight = h + 'px';
+        }
+        reserveHeight();
+        window.addEventListener('resize', reserveHeight);
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          box.classList.add('is-on', 'show-draft');
+          return;
+        }
+        var steps = [
+          [1800, function () { box.classList.add('is-on'); }],
+          [2600, function () { box.classList.add('show-draft'); }],
+          [3200, function () { box.classList.remove('show-draft'); }],
+          [700, function () { box.classList.remove('is-on'); }]
+        ];
+        var i = 0;
+        (function next() {
+          var step = steps[i];
+          setTimeout(function () { step[1](); i = (i + 1) % steps.length; next(); }, step[0]);
+        }());
+      }());
 
       document.getElementById('theme-toggle').addEventListener('click', function () {
         var dark = !document.documentElement.classList.contains('dark');
