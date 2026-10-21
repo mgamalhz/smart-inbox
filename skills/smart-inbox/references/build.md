@@ -122,7 +122,9 @@ class MessageTriage implements Agent, HasStructuredOutput
           low for spam and messages that need no reply.
         - reason: one short sentence the owner can scan, in {$this->locale}.
         - suggested_reply: a short, polite reply in the message's language,
-          or null for spam. Never promise prices, dates or terms.
+          or null for spam. Never promise prices, dates or terms, and never
+          say something was done (checked, flagged, refunded, booked) unless
+          it is stated above as already done.
         TEXT;
     }
 

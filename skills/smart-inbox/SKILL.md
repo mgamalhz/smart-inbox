@@ -102,6 +102,11 @@ See [Evaluate](#evaluate) and [Verify](#verify), then hand over with the
   anything involving money or accounts, the model summarises, lists the facts
   and names what is missing. It never says who is right or what the outcome
   should be.
+- **Drafts never claim an action that did not happen.** A draft must not say
+  "I've flagged your order", "I've issued a refund" or "I've booked you in"
+  unless the system did it and passed that fact in as context. Otherwise it
+  says what the owner will do, or asks for what is missing. Add a fixture where
+  the item invites such a claim and check the draft does not make it.
 
 ### The output is as visible as the item
 
