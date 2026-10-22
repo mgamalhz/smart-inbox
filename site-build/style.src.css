@@ -21,7 +21,7 @@
   }
 
   /* Hero inbox animation. Every element keeps its space in every state, so the card never
-     changes height: tabs and reasons fade in place, the draft floats over the next row.
+     changes height: tabs and reasons fade in place, and the draft takes the place of its message.
      Sequence: toggle on -> a scan sweep travels down the rows -> labels pop in and
      timestamps crossfade to reasons -> spam fades to grey while important rows light up
      -> tab counts pop -> the suggested reply types itself out -> reset. */
@@ -38,11 +38,6 @@
   .hero-inbox .mode-on { display: none; }
   .hero-inbox.is-on .mode-off { display: none; }
   .hero-inbox.is-on .mode-on { display: inline-flex; }
-
-  /* Note above the demo: one sentence at a time, Before swaps to After on toggle. */
-  #demo-note .note-after { display: none; }
-  #demo-note.is-on .note-before { display: none; }
-  #demo-note.is-on .note-after { display: inline; }
 
   .hero-inbox .tab-all { background: rgba(148, 163, 184, 0.18); color: inherit; transition: background-color 0.3s ease, color 0.3s ease; }
   .hero-inbox.is-on .tab-all { background: #8b5cf6; color: #fff; }
@@ -78,9 +73,12 @@
   .hero-inbox.is-on .row.is-spam { opacity: 0.4; filter: grayscale(0.9); transition-delay: calc(0.7s + var(--i) * 0.26s); }
   .hero-inbox.is-on .row.is-important { border-color: rgba(139, 92, 246, 0.7); box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.22), 0 14px 32px -12px rgba(139, 92, 246, 0.5); transition-delay: calc(0.7s + var(--i) * 0.26s); }
 
-  .hero-inbox .draft { position: absolute; left: 0.75rem; right: 0.75rem; top: calc(100% - 0.6rem); z-index: 10;
-    opacity: 0; transform: translateY(-6px); pointer-events: none; transition: opacity 0.35s ease, transform 0.35s ease;
-    box-shadow: 0 16px 32px -12px rgba(15, 23, 42, 0.45); }
+  /* The message and its draft share one grid cell, so the row is always as tall as the
+     taller of the two and nothing overlaps the next row. */
+  .hero-inbox .swap > * { grid-area: 1 / 1; }
+  .hero-inbox .msg { transition: opacity 0.3s ease; }
+  .hero-inbox.show-draft .msg { opacity: 0; }
+  .hero-inbox .draft { opacity: 0; transform: translateY(4px); pointer-events: none; transition: opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s; }
   .hero-inbox.show-draft .draft { opacity: 1; transform: none; }
   .draft .caret { display: inline-block; width: 2px; height: 0.95em; margin-left: 1px; background: currentColor; vertical-align: -0.12em; animation: caret-blink 0.8s steps(1, end) infinite; }
   @keyframes caret-blink { 50% { opacity: 0; } }

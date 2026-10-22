@@ -49,7 +49,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Caveat:wght@600&amp;family=IBM+Plex+Sans+Arabic:wght@400;500&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
-  <link rel="stylesheet" href="/style.css?v=5f90c9b61e">
+  <link rel="stylesheet" href="/style.css?v=3c39fb4ba6">
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white antialiased font-sans">
@@ -117,7 +117,6 @@
           </div>
 
           <ul class="mt-7 flex flex-wrap justify-center lg:justify-start gap-x-5 gap-y-2 text-sm text-slate-500 dark:text-gray-400">
-            <li class="flex items-center gap-1.5"><svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>No subscription</li>
             <li class="flex items-center gap-1.5"><svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>You own the code</li>
             <li class="flex items-center gap-1.5"><svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Personal data never sent to the AI</li>
           </ul>
@@ -125,7 +124,6 @@
 
         <!-- Animated inbox: starts off; the visitor flips the toggle to see the difference -->
         <div class="w-full mx-auto max-w-xl">
-          <p id="demo-note" class="mb-3 text-center transition-opacity duration-300"><span class="note-before text-xs font-medium text-slate-500 dark:text-gray-400">Before: a pile in date order</span><span class="note-after hidden text-xs font-semibold text-violet-600 dark:text-violet-300">After: sorted, drafts ready</span></p>
           <div id="hero-inbox" class="hero-inbox rounded-3xl border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/70 backdrop-blur p-3 sm:p-4 shadow-2xl shadow-slate-300/50 dark:shadow-black/40" aria-label="An inbox turning on smart sorting">
           <div class="flex items-center justify-between gap-3 rounded-2xl border border-violet-400/20 bg-gradient-to-r from-violet-100 dark:from-violet-500/10 via-fuchsia-500/5 to-transparent px-3.5 py-2.5">
             <div class="flex items-center gap-2.5">
@@ -171,10 +169,14 @@
                   <span class="lbl rounded-full px-2 py-0.5 text-[11px] font-medium bg-amber-100 dark:bg-amber-400/15 text-amber-800 dark:text-amber-200">Brand deal</span><span class="lbl rounded-full px-2 py-0.5 text-[11px] font-bold bg-violet-600 text-white shadow-sm shadow-violet-600/50">Important</span>
                 </div>
               </div>
-              <p class="mt-1 text-[13px] text-slate-600 dark:text-gray-300 truncate">We'd love a paid reel for our launch. Budget is flexible.</p>
-              <div class="slot relative mt-1 h-4 text-xs"><span class="when absolute inset-0 text-slate-400 dark:text-gray-500">9 min ago</span><span class="why absolute inset-0 truncate text-violet-700 dark:text-violet-200/90">✦ Paid brand offer.</span></div>
-              <div class="draft rounded-lg border border-violet-400/40 bg-violet-50 dark:bg-[#211a3d] px-3 py-2 text-xs text-slate-700 dark:text-gray-200 text-left">
-                <span class="font-semibold text-violet-700 dark:text-violet-300">Suggested reply:</span> <span class="draft-text" data-full="Thanks for reaching out! Could you share the dates and deliverables?"></span><span class="caret" aria-hidden="true"></span>
+              <div class="swap mt-1 grid grid-cols-1">
+                <div class="msg">
+                  <p class="text-[13px] text-slate-600 dark:text-gray-300 truncate">We'd love a paid reel for our launch. Budget is flexible.</p>
+                  <div class="slot relative mt-1 h-4 text-xs"><span class="when absolute inset-0 text-slate-400 dark:text-gray-500">9 min ago</span><span class="why absolute inset-0 truncate text-violet-700 dark:text-violet-200/90">✦ Paid brand offer.</span></div>
+                </div>
+                <div class="draft self-start rounded-lg border border-violet-400/40 bg-violet-50 dark:bg-[#211a3d] px-3 py-1 text-xs leading-tight text-slate-700 dark:text-gray-200 text-left">
+                  <span class="font-semibold text-violet-700 dark:text-violet-300">Suggested reply:</span> <span class="draft-text" data-full="Thanks for reaching out! Could you share the dates and deliverables?"></span><span class="caret" aria-hidden="true"></span><span class="draft-rest invisible" aria-hidden="true">Thanks for reaching out! Could you share the dates and deliverables?</span>
+                </div>
               </div>
             </li>
             <li class="row is-important rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.03] px-3.5 py-3 text-left" style="--i:2">
@@ -388,20 +390,24 @@
       (function () {
         var box = document.getElementById('hero-inbox');
         if (!box) return;
-        var note = document.getElementById('demo-note');
         var draftEl = box.querySelector('.draft-text');
         var draftFull = draftEl ? draftEl.dataset.full : '';
+        var restEl = box.querySelector('.draft-rest');
+        function showDraft(n) {
+          draftEl.textContent = draftFull.slice(0, n);
+          if (restEl) restEl.textContent = draftFull.slice(n);
+        }
         var draftTimer = null;
         var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         function startDraft() {
           if (!draftEl) return;
-          if (reduceMotion) { draftEl.textContent = draftFull; return; }
+          if (reduceMotion) { showDraft(draftFull.length); return; }
           clearInterval(draftTimer);
-          draftEl.textContent = '';
+          showDraft(0);
           var n = 0;
           draftTimer = setInterval(function () {
             n += 1;
-            draftEl.textContent = draftFull.slice(0, n);
+            showDraft(n);
             if (n >= draftFull.length) { clearInterval(draftTimer); draftTimer = null; }
           }, 26);
         }
@@ -440,7 +446,6 @@
         }
         function play() {
           box.classList.add('is-on');
-          if (note) note.classList.add('is-on');
           if (btn) btn.setAttribute('aria-pressed', 'true');
           if (reduceMotion) {
             box.classList.add('show-draft');
@@ -458,7 +463,6 @@
           clearTimers();
           stopDraft();
           box.classList.remove('is-on', 'show-draft');
-          if (note) note.classList.remove('is-on');
           if (btn) btn.setAttribute('aria-pressed', 'false');
           setPhase(0);
         }
