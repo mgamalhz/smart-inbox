@@ -49,7 +49,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Caveat:wght@600&amp;family=IBM+Plex+Sans+Arabic:wght@400;500&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
-  <link rel="stylesheet" href="/style.css?v=4106c68be0">
+  <link rel="stylesheet" href="/style.css?v=0254727237">
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white antialiased font-sans">
@@ -195,9 +195,9 @@
     <section class="py-12 md:py-16">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
         <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Your system already has an inbox</h2>
-        <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600 dark:text-gray-300 leading-relaxed">
+        <p class="mt-5 max-w-xl mx-auto text-lg text-balance text-slate-600 dark:text-gray-300 leading-relaxed">
           Every message arrives sorted: category, priority, a one-line reason, and a draft reply ready to edit.
-          <span class="block mt-1 text-slate-900 dark:text-white font-semibold">It suggests. You decide.</span>
+          <span class="block mt-3 text-slate-900 dark:text-white font-semibold">It suggests. You decide.</span>
         </p>
         <ul class="mt-6 flex flex-wrap justify-center gap-2">
           <li class="rounded-full bg-slate-200/70 dark:bg-white/[0.06] px-4 py-1.5 text-sm text-slate-600 dark:text-gray-300">Contact messages</li>
@@ -267,17 +267,23 @@
     <section id="developers" class="py-12 md:py-16">
       <div class="max-w-5xl mx-auto px-4 sm:px-6">
         <div class="rounded-3xl border border-slate-800 dark:border-white/10 bg-slate-950 dark:bg-white/[0.03] text-white p-7 sm:p-10 relative">
-          <div class="relative">
-            <p class="text-sm font-semibold uppercase tracking-widest text-violet-300">For developers</p>
-            <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight">Free, open source, MIT.</h2>
-            <p class="mt-4 text-slate-300 leading-relaxed max-w-2xl">An <a href="https://agentskills.io" class="text-violet-300 hover:underline">agent skill</a>: your coding agent builds the feature in your app: your data, your design, your stack.</p>
+          <div class="relative grid grid-cols-1 md:grid-cols-[1.15fr_1fr] gap-10 md:gap-14">
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-widest text-violet-300">For developers</p>
+              <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight">Free, open source, MIT.</h2>
+              <p class="mt-4 text-slate-300 leading-relaxed">An <a href="https://agentskills.io" class="text-violet-300 hover:underline">agent skill</a>: your coding agent builds the feature in your app: your data, your design, your stack.</p>
 
-            <div class="mt-6 max-w-lg flex items-center gap-2 rounded-xl bg-white/10 border border-white/10 pl-4 pr-2 py-2">
-              <code class="flex-1 min-w-0 overflow-x-auto no-scrollbar whitespace-nowrap text-sm text-emerald-300">npx skills add mgamalhz/smart-inbox</code>
-              <button type="button" class="copy-btn shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium bg-white/10 hover:bg-white/20 transition-colors" data-copy="npx skills add mgamalhz/smart-inbox" data-ga-event="copy_install" data-ga-location="developers">Copy</button>
+              <div class="mt-6 flex items-center gap-2 rounded-xl bg-white/10 border border-white/10 pl-4 pr-2 py-2">
+                <code class="flex-1 min-w-0 overflow-x-auto no-scrollbar whitespace-nowrap text-sm text-emerald-300">npx skills add mgamalhz/smart-inbox</code>
+                <button type="button" class="copy-btn shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium bg-white/10 hover:bg-white/20 transition-colors" data-copy="npx skills add mgamalhz/smart-inbox" data-ga-event="copy_install" data-ga-location="developers">Copy</button>
+              </div>
+              <div class="mt-7 flex flex-wrap gap-3">
+                <a href="https://github.com/mgamalhz/smart-inbox" class="inline-flex items-center gap-2 bg-violet-500 hover:bg-violet-400 text-white text-sm font-semibold px-5 py-3 rounded-full transition-colors" data-ga-event="github_click" data-ga-location="developers"><svg class="w-4 h-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z" /></svg>View on GitHub</a>
+                <a href="https://github.com/mgamalhz/smart-inbox#readme" class="inline-flex items-center gap-2 border border-white/20 hover:bg-white/10 text-sm font-semibold px-5 py-3 rounded-full transition-colors" data-ga-event="github_readme_click" data-ga-location="developers">Read the docs</a>
+              </div>
             </div>
 
-            <ol class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
+            <ol class="space-y-6 text-sm md:border-l md:border-white/10 md:pl-10 self-center">
               <li>
                 <p class="font-bold text-white">1. Run the command</p>
                 <p class="mt-1.5 text-slate-400 leading-relaxed">In your Laravel project. In Claude Code: <code class="text-emerald-300">/plugin marketplace add mgamalhz/smart-inbox</code></p>
@@ -291,11 +297,6 @@
                 <p class="mt-1.5 text-slate-400 leading-relaxed">It builds, tests on fake data, then hands you a switch that's off by default.</p>
               </li>
             </ol>
-
-            <div class="mt-8 flex flex-wrap gap-3">
-              <a href="https://github.com/mgamalhz/smart-inbox" class="inline-flex items-center gap-2 bg-violet-500 hover:bg-violet-400 text-white text-sm font-semibold px-5 py-3 rounded-full transition-colors" data-ga-event="github_click" data-ga-location="developers"><svg class="w-4 h-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z" /></svg>View on GitHub</a>
-              <a href="https://github.com/mgamalhz/smart-inbox#readme" class="inline-flex items-center gap-2 border border-white/20 hover:bg-white/10 text-sm font-semibold px-5 py-3 rounded-full transition-colors" data-ga-event="github_readme_click" data-ga-location="developers">Read the docs</a>
-            </div>
           </div>
         </div>
       </div>
